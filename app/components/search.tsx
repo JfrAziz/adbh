@@ -1,6 +1,7 @@
+import { askAI } from "@/store";
 import { useState } from "react";
+import { PREDEFINED_QUERY } from "@/data";
 import { Button } from "@/components/ui/button";
-import { askAI, PREDEFINED_QUERY } from "@/query";
 import { LoaderIcon, SendHorizonalIcon } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea-auto-expand";
 
@@ -10,7 +11,7 @@ export const Search = () => {
   const ask = askAI();
 
   return (
-    <div className="absolute z-50 flex h-svh w-full items-center justify-center bg-black/75">
+    <div className="absolute top-0 left-0 z-50 flex h-svh w-full items-center justify-center bg-black/75">
       <div className="w-full max-w-2xl space-y-4 p-4">
         <h1 className="pb-4 text-center font-bold text-5xl">
           What can I help you?

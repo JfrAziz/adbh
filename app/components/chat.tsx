@@ -1,6 +1,5 @@
-import { askAI } from "@/query";
-import { store } from "@/store";
 import { useState } from "react";
+import { store, askAI } from "@/store";
 import { cn } from "@/utils/classnames";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea-auto-expand";
@@ -9,8 +8,9 @@ import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
 import {
   XIcon,
   BotIcon,
-  EyeIcon,
+  MapIcon,
   LoaderIcon,
+  CircleDotIcon,
   SendHorizonalIcon,
 } from "lucide-react";
 
@@ -18,6 +18,8 @@ const ChatHistory = () => {
   const [search, setSearch] = useState("");
 
   const ask = askAI();
+
+  const active = store((state) => state.active);
 
   const messages = store((state) => state.messages);
 
@@ -58,27 +60,48 @@ const ChatHistory = () => {
                   "max-w-[80%] space-y-2 rounded-sm p-3",
                   message.role === "user"
                     ? "ml-auto rounded-br-none border bg-muted text-foreground"
-                    : "mr-auto rounded-bl-none bg-foreground text-background"
+                    : "mr-auto rounded-bl-none bg-muted text-foreground"
                 )}
               >
                 <div className="text-sm">{message.content}</div>
                 {!!message.data && (
                   <div
                     className={cn(
-                      "rounded-sm px-2 py-1 text-xs",
+                      "rounded-sm text-xs",
                       message.role === "ai" &&
-                        "bg-muted/10 text-muted-foreground",
+                        "bg-background text-muted-foreground",
                       message.role === "user" && "border text-muted-foreground"
                     )}
                   >
-                    <div className="flex flex-row items-center justify-between gap-x-2">
-                      <div className="line-clamp-1 flex-1">
-                        Showing maps data...
-                      </div>
-                      <Button variant="ghost" size="icon" className="size-7">
-                        <EyeIcon className="size-4" />
+                    <div className="flex flex-row items-center justify-between gap-x-2 border-border/50 border-b px-2 py-1">
+                      <div>Maps Data</div>
+                      <Button
+                        size="sm"
+                        className="h-6 px-2 font-mono text-xs"
+                        variant={active === message.id ? "ghost" : "default"}
+                        onClick={() => {
+                          store.setState((state) => {
+                            state.active = message.id;
+                          });
+                        }}
+                      >
+                        view
                       </Button>
                     </div>
+                    <ul className="space-y-2 px-2 py-1 text-xs">
+                      {message.data.data_points && (
+                        <li className="flex flex-row items-center gap-x-2">
+                          <CircleDotIcon className="size-4" />
+                          <div className="line-clamp-1 flex-1">Data Points</div>
+                        </li>
+                      )}
+                      {message.data.data_polygon && (
+                        <li className="flex flex-row items-center gap-x-2">
+                          <MapIcon className="size-4" />
+                          <div className="line-clamp-1 flex-1">Polygon Map</div>
+                        </li>
+                      )}
+                    </ul>
                   </div>
                 )}
               </div>

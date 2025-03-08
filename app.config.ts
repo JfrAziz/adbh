@@ -16,9 +16,6 @@ const app = defineConfig({
     public: {
       dir: "./app/public",
     },
-    api: {
-      entry: "./app/entry-api.ts",
-    },
     ssr: {
       entry: "./app/entry-server.ts",
     },
