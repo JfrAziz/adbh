@@ -1,0 +1,43 @@
+# Version control
+.git
+.gitignore
+.svn
+.hg
+
+# Development environments
+.env
+.venv
+venv/
+ENV/
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Build and dist directories
+dist/
+build/
+*.egg-info/
+
+# Log files
+*.log
+logs/
+
+# Local development files
+docker-compose.override.yml
+Dockerfile.dev
+*.local
+
+# Documentation
+docs/
+README.md
+CHANGELOG.md
