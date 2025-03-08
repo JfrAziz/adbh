@@ -4,7 +4,13 @@ import { defineConfig } from "@tanstack/react-start/config";
 
 const app = defineConfig({
   server: {
-    preset: "bun",
+    preset: "github-pages",
+    minify: true,
+    static: true,
+    prerender: {
+      routes: ["/"],
+      crawlLinks: true,
+    },
   },
   vite: {
     plugins: [tsconfigPaths(), tailwindcss()],

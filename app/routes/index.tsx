@@ -1,11 +1,15 @@
 import { store } from "@/store";
-import { Maps } from "@/components/maps";
+import { lazy, Suspense } from "react";
 import { Search } from "@/components/search";
 import { ChatWidget } from "@/components/chat";
 import { useShallow } from "zustand/react/shallow";
-import { MapProvider } from "@/components/ui/maps";
 import { motion, AnimatePresence } from "framer-motion";
 import { createFileRoute } from "@tanstack/react-router";
+import { MapProvider } from "@/components/ui/maps-context";
+
+const Maps = lazy(() => import("@/components/maps"));
+
+const DeckGLLayers = lazy(() => import("@/components/deckgl"));
 
 export const Route = createFileRoute("/")({
   component: Features,
@@ -17,7 +21,12 @@ function Features() {
   return (
     <MapProvider>
       <div className="relative h-svh w-full">
-        <Maps />
+        <Suspense>
+          <DeckGLLayers />
+        </Suspense>
+        <Suspense>
+          <Maps />
+        </Suspense>
       </div>
       <AnimatePresence mode="wait">
         {messageLength === 0 ? (

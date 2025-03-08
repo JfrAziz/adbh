@@ -2,8 +2,8 @@
 
 import { StrictMode } from "react";
 import { createRouter } from "@/router";
-import { StartClient } from "@tanstack/react-start";
 import { hydrateRoot } from "react-dom/client";
+import { StartClient } from "@tanstack/react-start";
 
 const router = createRouter();
 

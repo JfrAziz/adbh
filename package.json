@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "biome check --fix .",
     "dev": "bun --bunx vinxi dev",
-    "build": "bun --bunx vinxi build",
-    "start": "bun .output/server/index.js"
+    "build": "bun --bunx vinxi build"
   },
   "dependencies": {
     "@deck.gl/core": "^9.1.2",
