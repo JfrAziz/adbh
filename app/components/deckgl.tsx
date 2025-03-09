@@ -25,7 +25,16 @@ const DeckGLLayers = () => {
      * create scatter plot layer based
      * on the data_points, this can be EV location or something else
      */
-    if ("data_points" in data)
+    if ("data_points" in data) {
+      const colorSchema: Record<
+        DataPoint["type"],
+        [number, number, number, number]
+      > = {
+        EVChargingStation: [253, 231, 37, 255],
+        GreeneryLand: [40, 174, 128, 255],
+        WasteRecycleFacility: [173, 220, 48, 255],
+      };
+
       result.push(
         new ScatterplotLayer<DataPoint>({
           id: "scatter",
@@ -33,12 +42,14 @@ const DeckGLLayers = () => {
           stroked: true,
           pickable: true,
           getPosition: (d) => [d.location.lon, d.location.lat],
-          getFillColor: [255, 140, 0, 50],
-          getRadius: 500,
-          getLineWidth: 1,
-          getLineColor: [0, 0, 0, 50],
+          getLineColor: [253, 231, 37, 50],
+          getRadius: 250,
+          getLineWidth: 10,
+          getFillColor:
+            colorSchema[data.data_points?.[0].type || "GreeneryLand"],
         })
       );
+    }
 
     /**
      * create polygon layer based on the data_polygon
@@ -50,8 +61,9 @@ const DeckGLLayers = () => {
           data: data["data_polygon"],
           stroked: true,
           filled: true,
-          getFillColor: [255, 140, 0, 50],
-          getLineColor: [0, 0, 0, 50],
+          getFillColor: [62, 42, 113, 50],
+          getLineColor: [51, 146, 247, 50],
+          getLineWidth: 100,
         })
       );
 
