@@ -4,7 +4,7 @@ import { points } from "@turf/turf";
 import { DataPoint, store } from "@/store";
 import { useMap } from "@/components/ui/maps-context";
 import { DeckGLOverlay } from "@/components/ui/maps-deckgl";
-import { ScatterplotLayer, GeoJsonLayer } from "@deck.gl/layers";
+import { ScatterplotLayer, GeoJsonLayer, GridCellLayer } from "@deck.gl/layers";
 
 /**
  * all layers from deck.gl instance
@@ -25,40 +25,52 @@ const DeckGLLayers = () => {
      * create scatter plot layer based
      * on the data_points, this can be EV location or something else
      */
-    if ("data_points" in data) {
+    if (data.map?.points) {
       const colorSchema: Record<
-        DataPoint["type"],
+        Exclude<DataPoint["type"], "News">,
         [number, number, number, number]
       > = {
-        EVChargingStation: [253, 231, 37, 255],
+        EVChargingStation: [253, 231, 37, 100],
         GreeneryLand: [40, 174, 128, 255],
-        WasteRecycleFacility: [173, 220, 48, 255],
+        WasteRecycleFacility: [173, 220, 48, 100],
       };
 
       result.push(
         new ScatterplotLayer<DataPoint>({
           id: "scatter",
-          data: data.data_points,
+          data: data.map?.points || [],
           stroked: true,
           pickable: true,
           getPosition: (d) => [d.location.lon, d.location.lat],
-          getLineColor: [253, 231, 37, 50],
+          getLineColor: [255, 255, 255, 20],
           getRadius: 250,
-          getLineWidth: 10,
-          getFillColor:
-            colorSchema[data.data_points?.[0].type || "GreeneryLand"],
+          getLineWidth: 100,
+          getFillColor: (d) => colorSchema[d.type as keyof typeof colorSchema],
         })
       );
     }
 
+    if (data.map?.grids)
+      result.push(
+        new GridCellLayer<DataPoint>({
+          id: "grid",
+          extruded: false,
+          data: data.map?.grids || [],
+          pickable: true,
+          getPosition: (d) => [d.location.lat, d.location.lon],
+          cellSize: 1200,
+          getFillColor: [253, 231, 37, 255],
+        })
+      );
+
     /**
      * create polygon layer based on the data_polygon
      */
-    if ("data_polygon" in data)
+    if (data.map?.polygon)
       result.push(
         new GeoJsonLayer({
           id: "polygon",
-          data: data["data_polygon"],
+          data: data.map?.polygon,
           stroked: true,
           filled: true,
           getFillColor: [62, 42, 113, 50],
@@ -72,21 +84,33 @@ const DeckGLLayers = () => {
      */
     const bounds = (() => {
       /**
-       * using the polygon first to calculate the bounds
+       * use points first to calculate the bounds
        */
-      if ("data_polygon" in data) return bbox(data.data_polygon!);
-
-      /**
-       * if polygon not available, use the data_points
-       */
-      if ("data_points" in data)
+      if (data.map?.points)
         return bbox(
           points(
-            data.data_points!.map((d) => {
+            data.map!.points!.map((d) => {
               return [d.location.lon, d.location.lat];
             })
           )
         );
+
+      /**
+       * then using grids if points not exist
+       */
+      if (data.map?.grids)
+        return bbox(
+          points(
+            data.map!.grids!.map((d) => {
+              return [d.location.lat, d.location.lon];
+            })
+          )
+        );
+
+      /**
+       * then using polygon if grids not exist
+       */
+      if (data.map?.polygon) return bbox(data.map?.polygon!);
 
       /**
        * fallback to bbox of europe

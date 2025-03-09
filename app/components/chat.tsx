@@ -64,7 +64,32 @@ const ChatHistory = () => {
                 )}
               >
                 <div className="text-sm">{message.content}</div>
-                {!!message.data && (
+                {!!message.data?.news && (
+                  <div
+                    className={cn(
+                      "rounded-sm text-xs",
+                      message.role === "ai" &&
+                        "bg-background text-muted-foreground",
+                      message.role === "user" && "border text-muted-foreground"
+                    )}
+                  >
+                    <div className="flex flex-row items-center justify-between gap-x-2 border-border/50 border-b px-2 py-1">
+                      <div>News Data</div>
+                    </div>
+                    <ul className="space-y-2 px-2 py-1 text-xs">
+                      {message.data.news.map((news, i) => (
+                        <li key={i} className="space-y-1 border-b pb-2">
+                          <div className="flex flex-row items-center gap-x-2 font-bold">
+                            <CircleDotIcon className="size-4" />
+                            <span>{news.date}</span>
+                          </div>
+                          <div>{news.content}</div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {!!message.data?.map && (
                   <div
                     className={cn(
                       "rounded-sm text-xs",
@@ -89,13 +114,21 @@ const ChatHistory = () => {
                       </Button>
                     </div>
                     <ul className="space-y-2 px-2 py-1 text-xs">
-                      {message.data.data_points && (
+                      {message.data.map?.grids && (
+                        <li className="flex flex-row items-center gap-x-2">
+                          <CircleDotIcon className="size-4" />
+                          <div className="line-clamp-1 flex-1">
+                            1km * 1km grid
+                          </div>
+                        </li>
+                      )}
+                      {message.data.map?.points && (
                         <li className="flex flex-row items-center gap-x-2">
                           <CircleDotIcon className="size-4" />
                           <div className="line-clamp-1 flex-1">Data Points</div>
                         </li>
                       )}
-                      {message.data.data_polygon && (
+                      {message.data.map?.polygon && (
                         <li className="flex flex-row items-center gap-x-2">
                           <MapIcon className="size-4" />
                           <div className="line-clamp-1 flex-1">Polygon Map</div>

@@ -7,100 +7,70 @@
           "_id": "green_living_graph_node/155271",
           "_rev": "_jU9efGG-_c",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6391154,
-            "lon": 10.1022828
-          }
+          "location": { "lat": 53.6391154, "lon": 10.1022828 }
         },
         {
           "_key": "155177",
           "_id": "green_living_graph_node/155177",
           "_rev": "_jU9efGG---",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6023929,
-            "lon": 10.0311419
-          }
+          "location": { "lat": 53.6023929, "lon": 10.0311419 }
         },
         {
           "_key": "154992",
           "_id": "green_living_graph_node/154992",
           "_rev": "_jU9efG--Aa",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6023812,
-            "lon": 10.0310692
-          }
+          "location": { "lat": 53.6023812, "lon": 10.0310692 }
         },
         {
           "_key": "154991",
           "_id": "green_living_graph_node/154991",
           "_rev": "_jU9efG--AZ",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6023767,
-            "lon": 10.0310407
-          }
+          "location": { "lat": 53.6023767, "lon": 10.0310407 }
         },
         {
           "_key": "154990",
           "_id": "green_living_graph_node/154990",
           "_rev": "_jU9efG--AY",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6023869,
-            "lon": 10.0311048
-          }
+          "location": { "lat": 53.6023869, "lon": 10.0311048 }
         },
         {
           "_key": "154989",
           "_id": "green_living_graph_node/154989",
           "_rev": "_jU9efG--AX",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6023988,
-            "lon": 10.0311788
-          }
+          "location": { "lat": 53.6023988, "lon": 10.0311788 }
         },
         {
           "_key": "154988",
           "_id": "green_living_graph_node/154988",
           "_rev": "_jU9efG--AW",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6024039,
-            "lon": 10.0312105
-          }
+          "location": { "lat": 53.6024039, "lon": 10.0312105 }
         },
         {
           "_key": "154870",
           "_id": "green_living_graph_node/154870",
           "_rev": "_jU9efG---g",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.5905707,
-            "lon": 9.756272
-          }
+          "location": { "lat": 53.5905707, "lon": 9.756272 }
         },
         {
           "_key": "154869",
           "_id": "green_living_graph_node/154869",
           "_rev": "_jU9efG---f",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.591289,
-            "lon": 9.7569073
-          }
+          "location": { "lat": 53.591289, "lon": 9.7569073 }
         },
         {
           "_key": "154809",
           "_id": "green_living_graph_node/154809",
           "_rev": "_jU9efF6-AS",
           "type": "GreeneryLand",
-          "location": {
-            "lat": 53.6041472,
-            "lon": 10.029987
-          }
+          "location": { "lat": 53.6041472, "lon": 10.029987 }
         }
       ],
       "centre": {}

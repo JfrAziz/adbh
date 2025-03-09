@@ -9,11 +9,24 @@ export interface DataPoint {
   _key: string;
   _id: string;
   _rev: string;
-  type: "EVChargingStation" | "WasteRecycleFacility" | "GreeneryLand";
+  type: "EVChargingStation" | "WasteRecycleFacility" | "GreeneryLand" | "News";
+  /**
+   * if value exist, it is grid data
+   */
+  value?: number;
   location: {
     lat: number;
     lon: number;
   };
+}
+
+export interface DataNews {
+  _key: string;
+  _id: string;
+  _rev: string;
+  type: "News";
+  content: string;
+  date: string;
 }
 
 export interface Message {
@@ -21,10 +34,12 @@ export interface Message {
   content: string;
   role: "user" | "ai";
   data?: {
-    data_points?: DataPoint[];
-    data_polygon?: GeoJSON;
-  } & {
-    [key: string]: unknown;
+    news?: DataNews[];
+    map?: {
+      grids?: DataPoint[];
+      points?: DataPoint[];
+      polygon?: GeoJSON;
+    };
   };
 }
 
@@ -58,10 +73,41 @@ export const askAI = () =>
         const data = await fetch(pre.source)
           .then((res) => res.json())
           .then((data) => {
-            const messageData = { ...data.data.object };
+            type Data = Record<string, string>;
 
-            if ("data_polygon" in data)
-              messageData.data_polygon = data.data_polygon as GeoJSON;
+            const messageData: Message["data"] = {};
+
+            const points = data.data.object.data_points.filter((d: Data) => {
+              return !d.value && d.type !== "News";
+            });
+
+            if (points.length > 0)
+              messageData.map = Object.assign(messageData.map || {}, {
+                points: points as DataPoint[],
+              });
+
+            const grids = data.data.object.data_points.filter((d: Data) => {
+              return d.value;
+            });
+
+            if (grids.length > 0)
+              messageData.map = Object.assign(messageData.map || {}, {
+                grids: grids as DataPoint[],
+              });
+
+            const news = data.data.object.data_points.filter((d: Data) => {
+              return d.type === "News";
+            });
+
+            if (news.length > 0) messageData.news = news as [];
+
+            if (
+              data["data_polygon"] &&
+              Object.keys(data["data_polygon"]).length > 0
+            )
+              messageData.map = Object.assign(messageData.map || {}, {
+                polygon: data.data_polygon as GeoJSON,
+              });
 
             return {
               text: data.data.text_generated as string,

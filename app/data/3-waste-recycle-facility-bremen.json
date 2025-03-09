@@ -7,100 +7,70 @@
           "_id": "green_living_graph_node/225002",
           "_rev": "_jU9eiB2-_Y",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.5705446,
-            "lon": 8.6121474
-          }
+          "location": { "lat": 53.5705446, "lon": 8.6121474 }
         },
         {
           "_key": "224852",
           "_id": "green_living_graph_node/224852",
           "_rev": "_jU9eiBy-_a",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.201408,
-            "lon": 8.5698509
-          }
+          "location": { "lat": 53.201408, "lon": 8.5698509 }
         },
         {
           "_key": "224838",
           "_id": "green_living_graph_node/224838",
           "_rev": "_jU9eiBy-_M",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.5612599,
-            "lon": 8.5846621
-          }
+          "location": { "lat": 53.5612599, "lon": 8.5846621 }
         },
         {
           "_key": "224394",
           "_id": "green_living_graph_node/224394",
           "_rev": "_jU9eiBm-_U",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.534461,
-            "lon": 8.5848835
-          }
+          "location": { "lat": 53.534461, "lon": 8.5848835 }
         },
         {
           "_key": "224094",
           "_id": "green_living_graph_node/224094",
           "_rev": "_jU9eiBe-_o",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.5526346,
-            "lon": 8.5697396
-          }
+          "location": { "lat": 53.5526346, "lon": 8.5697396 }
         },
         {
           "_key": "223093",
           "_id": "green_living_graph_node/223093",
           "_rev": "_jU9eiBG--W",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.1984039,
-            "lon": 8.5669588
-          }
+          "location": { "lat": 53.1984039, "lon": 8.5669588 }
         },
         {
           "_key": "222712",
           "_id": "green_living_graph_node/222712",
           "_rev": "_jU9eiA6-_T",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.0876549,
-            "lon": 8.9376342
-          }
+          "location": { "lat": 53.0876549, "lon": 8.9376342 }
         },
         {
           "_key": "221859",
           "_id": "green_living_graph_node/221859",
           "_rev": "_jU9eiAi-_y",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.5333395,
-            "lon": 8.59728
-          }
+          "location": { "lat": 53.5333395, "lon": 8.59728 }
         },
         {
           "_key": "221647",
           "_id": "green_living_graph_node/221647",
           "_rev": "_jU9eiAe-_-",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.1822517,
-            "lon": 8.608812
-          }
+          "location": { "lat": 53.1822517, "lon": 8.608812 }
         },
         {
           "_key": "221646",
           "_id": "green_living_graph_node/221646",
           "_rev": "_jU9eiAe--9",
           "type": "WasteRecycleFacility",
-          "location": {
-            "lat": 53.1781109,
-            "lon": 8.6159018
-          }
+          "location": { "lat": 53.1781109, "lon": 8.6159018 }
         }
       ],
       "centre": {}

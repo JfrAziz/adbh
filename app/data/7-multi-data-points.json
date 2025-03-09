@@ -1,0 +1,214 @@
+{
+  "data": {
+    "object": {
+      "data_points": [
+        {
+          "_key": "150888",
+          "_id": "green_living_graph_node/150888",
+          "_rev": "_jU9efEa-_T",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1549122,
+            "lon": 11.5407281
+          }
+        },
+        {
+          "_key": "231582",
+          "_id": "green_living_graph_node/231582",
+          "_rev": "_jU9eiIS-_o",
+          "type": "WasteRecycleFacility",
+          "location": {
+            "lat": 48.1966303,
+            "lon": 11.5353856
+          }
+        },
+        {
+          "_key": "236354",
+          "_id": "green_living_graph_node/236354",
+          "_rev": "_jU9eiNq-_e",
+          "type": "WasteRecycleFacility",
+          "location": {
+            "lat": 48.156483,
+            "lon": 11.5484116
+          }
+        },
+        {
+          "_key": "128773",
+          "_id": "green_living_graph_node/128773",
+          "_rev": "_jU9ecDu--O",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1472288,
+            "lon": 11.5434517
+          }
+        },
+        {
+          "_key": "128774",
+          "_id": "green_living_graph_node/128774",
+          "_rev": "_jU9ecDu--P",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1472667,
+            "lon": 11.543376
+          }
+        },
+        {
+          "_key": "121978",
+          "_id": "green_living_graph_node/121978",
+          "_rev": "_jU9eb12--o",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1532363,
+            "lon": 11.5375666
+          }
+        },
+        {
+          "_key": "244224",
+          "_id": "green_living_graph_node/244224",
+          "_rev": "_jU9eiVC--3",
+          "type": "WasteRecycleFacility",
+          "location": {
+            "lat": 48.1305112,
+            "lon": 11.6033099
+          }
+        },
+        {
+          "_key": "151421",
+          "_id": "green_living_graph_node/151421",
+          "_rev": "_jU9efEm-_i",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1560121,
+            "lon": 11.5478868
+          }
+        },
+        {
+          "_key": "234571",
+          "_id": "green_living_graph_node/234571",
+          "_rev": "_jU9eiM6--5",
+          "type": "WasteRecycleFacility",
+          "location": {
+            "lat": 48.1551491,
+            "lon": 11.5402355
+          }
+        },
+        {
+          "_key": "143374",
+          "_id": "green_living_graph_node/143374",
+          "_rev": "_jU9ecVa--h",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.15513,
+            "lon": 11.5404916
+          }
+        },
+        {
+          "_key": "125637",
+          "_id": "green_living_graph_node/125637",
+          "_rev": "_jU9eb9C--B",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1156301,
+            "lon": 11.5831571
+          }
+        },
+        {
+          "_key": "150887",
+          "_id": "green_living_graph_node/150887",
+          "_rev": "_jU9efEa-_S",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1548682,
+            "lon": 11.5407928
+          }
+        },
+        {
+          "_key": "128772",
+          "_id": "green_living_graph_node/128772",
+          "_rev": "_jU9ecDu--N",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1488949,
+            "lon": 11.5457886
+          }
+        },
+        {
+          "_key": "148060",
+          "_id": "green_living_graph_node/148060",
+          "_rev": "_jU9ecXy-_O",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1516572,
+            "lon": 11.5493461
+          }
+        },
+        {
+          "_key": "240676",
+          "_id": "green_living_graph_node/240676",
+          "_rev": "_jU9eiTG--D",
+          "type": "WasteRecycleFacility",
+          "location": {
+            "lat": 48.1204003,
+            "lon": 11.4970876
+          }
+        },
+        {
+          "_key": "233929",
+          "_id": "green_living_graph_node/233929",
+          "_rev": "_jU9eiMm-_z",
+          "type": "WasteRecycleFacility",
+          "location": {
+            "lat": 48.1531128,
+            "lon": 11.5487441
+          }
+        },
+        {
+          "_key": "128777",
+          "_id": "green_living_graph_node/128777",
+          "_rev": "_jU9ecDu--S",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1542323,
+            "lon": 11.5413093
+          }
+        },
+        {
+          "_key": "128776",
+          "_id": "green_living_graph_node/128776",
+          "_rev": "_jU9ecDu--R",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.1541323,
+            "lon": 11.5414223
+          }
+        },
+        {
+          "_key": "125636",
+          "_id": "green_living_graph_node/125636",
+          "_rev": "_jU9eb9C--A",
+          "type": "EVChargingStation",
+          "location": {
+            "lat": 48.115537,
+            "lon": 11.5831312
+          }
+        },
+        {
+          "_key": "236455",
+          "_id": "green_living_graph_node/236455",
+          "_rev": "_jU9eiNu-_-",
+          "type": "WasteRecycleFacility",
+          "location": {
+            "lat": 48.1536567,
+            "lon": 11.5430328
+          }
+        }
+      ],
+      "centre": {
+        "lat": 48.152126,
+        "lon": 11.544467
+      }
+    },
+    "text_generated": "The highest population density near the coordinates longitude 11.544467 and latitude 48.152126 is associated with various facilities such as EV Charging Stations and Waste Recycle Facilities. These locations are distributed around the specified point, indicating a well-developed infrastructure in the area."
+  },
+  "data_polygon": {}
+}
