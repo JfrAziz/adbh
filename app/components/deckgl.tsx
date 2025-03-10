@@ -59,9 +59,9 @@ const DeckGLLayers = () => {
         DataPoint["type"],
         [number, number, number, number]
       > = {
-        EVChargingStation: [253, 231, 37, 100],
+        EVChargingStation: [253, 231, 37, 255],
         GreeneryLand: [40, 174, 128, 255],
-        WasteRecycleFacility: [173, 220, 48, 100],
+        WasteRecycleFacility: [173, 220, 48, 255],
       };
 
       result.push(

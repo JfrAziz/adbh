@@ -23,7 +23,11 @@ export const Route = createRootRouteWithContext<RouterContext>()({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "MPD",
+        title: "Green Living Assistant",
+      },
+      {
+        description:
+          "Your AI-powered guide for sustainable living, providing information on green spaces and environmental data across Europe.",
       },
     ],
     links: [

@@ -28,7 +28,7 @@ const ChatHistory = () => {
       <CardHeader className="flex flex-row items-center justify-between gap-2 p-2">
         <h1 className="flex flex-row items-center gap-2 font-bold text-lg">
           <LeafIcon />
-          <div>Green Living AI</div>
+          <div>Green Living Assistant</div>
         </h1>
         <Button
           size="sm"
