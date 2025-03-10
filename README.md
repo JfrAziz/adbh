@@ -6,10 +6,11 @@
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
 ![ArangoDB Version](https://img.shields.io/badge/ArangoDB-3.10%2B-blue)
 
-WEB APPS : https://adbh.pages.dev/
-PRESENTATION: [Presentation Link](./docs/presentation.pdf)
+- Web Apps : [https://adbh.pages.dev](https://adbh.pages.dev/)
+- Presentation: [Presentation](./docs/presentation.pdf)
 
-![Web App Demo](./docs/apps.mp4)
+<video src="https://github.com/JfrAziz/adbh/raw/refs/heads/master/docs/apps.mp4" controls="controls" style="max-width: 730px;">
+</video>
 
 ## Table of Contents
 
