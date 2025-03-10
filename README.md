@@ -8,6 +8,7 @@
 
 - Web Apps : [https://adbh.pages.dev](https://adbh.pages.dev/)
 - Presentation: [Presentation](./docs/presentation.pdf)
+- Youtube video : [https://youtu.be/UNBXhglRGzs](https://youtu.be/UNBXhglRGzs)
 
 <video src="https://github.com/JfrAziz/adbh/raw/refs/heads/master/docs/apps.mp4" controls="controls" style="max-width: 730px;">
 </video>
