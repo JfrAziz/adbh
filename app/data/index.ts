@@ -6,7 +6,7 @@ import news from "@/data/5-news-berlin.json?url";
 import popDensity from "@/data/6-pop-density-hessen.json?url";
 import multiDataPoints from "@/data/7-multi-data-points.json?url";
 
-export const PREDEFINED_QUERY = [
+export const CACHED_QUERY = [
   {
     id: "ev-charging-berlin",
     text: "Find EV charging stations in Berlin",

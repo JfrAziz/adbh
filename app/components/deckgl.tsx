@@ -2,9 +2,38 @@ import { useMemo } from "react";
 import { bbox } from "@turf/bbox";
 import { points } from "@turf/turf";
 import { DataPoint, store } from "@/store";
+import { scaleSequential } from "d3-scale";
+import { interpolateReds } from "d3-scale-chromatic";
 import { useMap } from "@/components/ui/maps-context";
 import { DeckGLOverlay } from "@/components/ui/maps-deckgl";
 import { ScatterplotLayer, GeoJsonLayer, GridCellLayer } from "@deck.gl/layers";
+
+const viridis = scaleSequential(interpolateReds);
+
+/**
+ * transform color string to rgb value array, for example
+ * rgb(0, 0, 0) or #123456 to [0, 0, 0]. we don't do much validation
+ * because we know every value that use this function is valid,
+ * is either rgb(0,0,0) or hex
+ */
+const transformToRGBArray = (color: string): [number, number, number] => {
+  if (color.startsWith("rgb"))
+    return color
+      .replace("rgb(", "")
+      .replace(")", "")
+      .split(",")
+      .map((x) => Number(x.trim())) as [number, number, number];
+
+  const hex = color.slice(1);
+
+  const r = parseInt(hex.slice(0, 2), 16);
+
+  const g = parseInt(hex.slice(2, 4), 16);
+
+  const b = parseInt(hex.slice(4, 6), 16);
+
+  return [r, g, b];
+};
 
 /**
  * all layers from deck.gl instance
@@ -27,7 +56,7 @@ const DeckGLLayers = () => {
      */
     if (data.map?.points) {
       const colorSchema: Record<
-        Exclude<DataPoint["type"], "News">,
+        DataPoint["type"],
         [number, number, number, number]
       > = {
         EVChargingStation: [253, 231, 37, 100],
@@ -45,12 +74,16 @@ const DeckGLLayers = () => {
           getLineColor: [255, 255, 255, 20],
           getRadius: 250,
           getLineWidth: 100,
-          getFillColor: (d) => colorSchema[d.type as keyof typeof colorSchema],
+          getFillColor: (d) => colorSchema[d.type],
         })
       );
     }
 
-    if (data.map?.grids)
+    if (data.map?.grids) {
+      const sortedData = [...(data.map?.grids || [])].sort((a, b) => {
+        return a!.value! - b!.value!;
+      });
+
       result.push(
         new GridCellLayer<DataPoint>({
           id: "grid",
@@ -59,9 +92,18 @@ const DeckGLLayers = () => {
           pickable: true,
           getPosition: (d) => [d.location.lat, d.location.lon],
           cellSize: 1200,
-          getFillColor: [253, 231, 37, 255],
+          getFillColor: (data) => {
+            const idx = sortedData.findIndex((d) => d.value === data.value);
+
+            const color = transformToRGBArray(
+              viridis((1 / sortedData.length) * (idx + 1))
+            );
+
+            return [...color, 100];
+          },
         })
       );
+    }
 
     /**
      * create polygon layer based on the data_polygon

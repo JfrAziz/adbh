@@ -7,8 +7,8 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Drawer, DrawerTrigger, DrawerContent } from "@/components/ui/drawer";
 import {
   XIcon,
-  BotIcon,
   MapIcon,
+  LeafIcon,
   LoaderIcon,
   CircleDotIcon,
   SendHorizonalIcon,
@@ -27,8 +27,8 @@ const ChatHistory = () => {
     <Card className="flex flex-col overflow-hidden p-0">
       <CardHeader className="flex flex-row items-center justify-between gap-2 p-2">
         <h1 className="flex flex-row items-center gap-2 font-bold text-lg">
-          <BotIcon />
-          <div>Gen AI</div>
+          <LeafIcon />
+          <div>Green Living AI</div>
         </h1>
         <Button
           size="sm"
@@ -181,7 +181,7 @@ const ChatWidgetMobile = () => {
         <DrawerTrigger asChild>
           <Button variant="outline" className="w-full gap-x-2">
             <span>Ask AI</span>
-            <BotIcon className="size-4" />
+            <LeafIcon className="size-4" />
           </Button>
         </DrawerTrigger>
         <DrawerContent>

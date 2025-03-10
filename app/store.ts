@@ -1,7 +1,7 @@
 import { ulid } from "ulid";
 import { create } from "zustand";
 import { GeoJSON } from "geojson";
-import { PREDEFINED_QUERY } from "./data";
+import { CACHED_QUERY } from "./data";
 import { immer } from "zustand/middleware/immer";
 import { useMutation } from "@tanstack/react-query";
 
@@ -9,7 +9,7 @@ export interface DataPoint {
   _key: string;
   _id: string;
   _rev: string;
-  type: "EVChargingStation" | "WasteRecycleFacility" | "GreeneryLand" | "News";
+  type: "EVChargingStation" | "WasteRecycleFacility" | "GreeneryLand";
   /**
    * if value exist, it is grid data
    */
@@ -62,15 +62,15 @@ export const store = create<{
 
 export const askAI = () =>
   useMutation({
-    mutationFn: async (message: { text: string; predefinedId?: string }) => {
-      const pre = PREDEFINED_QUERY.find((p) => {
-        return p.id === message.predefinedId || p.text === message.text;
+    mutationFn: async (message: { text: string; cachedQueryId?: string }) => {
+      const cached = CACHED_QUERY.find((p) => {
+        return p.id === message.cachedQueryId || p.text === message.text;
       });
 
-      if (pre) {
+      if (cached) {
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        const data = await fetch(pre.source)
+        const data = await fetch(cached.source)
           .then((res) => res.json())
           .then((data) => {
             type Data = Record<string, string>;
@@ -118,7 +118,17 @@ export const askAI = () =>
         return data;
       }
 
-      return undefined;
+      const res = await fetch(import.meta.env.VITE_BACKEND_BASE_URL, {
+        method: "POST",
+        body: JSON.stringify({ query: message.text }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .catch(() => undefined);
+
+      return res;
     },
     onSuccess: (data, variables) => {
       const message: Message = data
