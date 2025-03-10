@@ -7,13 +7,19 @@
 ![ArangoDB Version](https://img.shields.io/badge/ArangoDB-3.10%2B-blue)
 
 WEB APPS : https://adbh.pages.dev/
+PRESENTATION: [Presentation Link](./docs/presentation.pdf)
+
+![Web App Demo](./docs/apps.mp4)
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)
-- [Data Sources](#data-sources)
-- [Data Processing and Graph Construction](#data-processing-and-graph-construction)
-- [Agentic App Functionality](#agentic-app-functionality)
+- [Arango DB Hackathon Submission](#arango-db-hackathon-submission)
+- [Green Living Graph Based Agentic App Project](#green-living-graph-based-agentic-app-project)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Data Sources](#data-sources)
+  - [Data Processing and Graph Construction](#data-processing-and-graph-construction)
+  - [Agentic App Functionality](#agentic-app-functionality)
 
 ## Project Overview
 
@@ -66,3 +72,7 @@ The Agentic App dynamically retrieves and processes natural language queries bas
 - "Find EV charging stations in Berlin."
 - "How many greenery lands are in Hamburg?"
 - "Show me the location with the highest CO level in Bayern."
+
+Here how it's works
+
+![Structure](./docs/structure.png)
