@@ -1,6 +1,6 @@
 # Arango DB Hackathon Submission
 
-# Green Living Data Analysis Project
+# Green Living Graph Based Agentic App Project
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)
